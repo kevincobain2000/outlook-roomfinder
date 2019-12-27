@@ -1,6 +1,6 @@
 {
   "name": "roomfinder",
-  "version": "1.0.15",
+  "version": "1.0.0",
   "description": "Find room no matter what",
   "repository": "kevincobain2000/outlook-roomfinder",
   "main": "index.js",
