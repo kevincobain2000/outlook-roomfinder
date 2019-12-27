@@ -14,11 +14,15 @@ https://github.com/kevincobain2000/outlook-roomfinder/releases
 
 ### Screens
 
+#### Flow
+
+<img src="screens/flow.png" width="750">
+
 #### UI
 
-<img src="screens/screen-1.png" width="750" alt="portfolio_view">
-<img src="screens/screen-2.png" width="750" alt="portfolio_view">
-<img src="screens/screen-3.png" width="750" alt="portfolio_view">
+<img src="screens/screen-1.png" width="750">
+<img src="screens/screen-2.png" width="750">
+<img src="screens/screen-3.png" width="750">
 
 
 ## Getting started
