@@ -6,7 +6,7 @@ Automate finding a meeting room in your office for outlook users.
 
 ### How to use
 
-- Medium Article Link
+https://medium.com/web-developer/automatic-meeting-room-finder-outlook-office-365-scheduling-assistant-1f23cf5b91aa
 
 ### Downloads
 
