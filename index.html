@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Room Finder</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/11.0.0/build.css">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:700" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Scripts -->
+  <script>
+    delete module.exports
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="./savy.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" charset="utf-8"></script>
+  <script src="./window.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+  <div id="container" class="container-fluid mt-5">
+
+    <!-- Input row -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 pl-5 pr-5">
+        <div class="text-center ml-5 mr-5">
+            <h3 class="text-center">ROOM FINDER</h3>
+            <span class="text-muted">Find a room no matter what</span>
+            <br>
+            <img src="icon.ico" alt="" height="140" width="140">
+            <hr>
+        </div>
+
+        <form>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <label for="username">Email address<sup class="text-danger">*required</sup></label>
+                <input type="email" class="form-control auto-save" id="username" aria-describe placeholder="Enter email" required>
+                <small class="text-muted">Your email address with @your-company.com</small>
+                <div id="error-username" class="text-danger text-small">※ Email address is required</div>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <label for="password">Password<sup class="text-danger">*required</sup></label>
+                <input type="password" class="form-control auto-save" id="password" placeholder="Password" required>
+                <small class="text-muted">Your email password</small>
+                <div id="error-password" class="text-danger text-small">※ Email password is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+              <div class="form-group">
+                <label for="subject">Subject<sup class="text-danger">*required</sup></label>
+                <input type="text" class="form-control auto-save" id="subject" placeholder="Subject of meeting room" required>
+                <small class="form-text text-muted">Meeting Room Subject - Will be shown on the display panels and in your calendar.</small>
+                <div id="error-subject" class="text-danger text-small">※ Email subject is required</div>
+              </div>
+            </div>
+
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <div class="form-group">
+                  <label for="datetime">DateTime<sup class="text-danger">*required</sup></label>
+                  <input type="text" class="form-control auto-save" id="datetime" placeholder="YYYY-MM-DD HH:mm" required>
+                  <small class="form-text text-muted">Start Datetime - now onwards</small>
+                  <div id="error-datetime" class="text-danger text-small">※ Datetime is invalid. Cannot be empty or past</div>
+              </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+              <div class="form-group">
+                  <label for="minutes">Duration<sup class="text-danger">*required</sup></label>
+                  <input type="number" class="form-control auto-save" id="minutes" placeholder="Minutes" required>
+                  <small class="form-text text-muted">Minutes 30, 45, 60</small>
+                  <div id="error-minutes" class="text-danger text-small">※ Duration of meeting is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="rooms">Rooms list<sup class="text-danger">*required</sup></label>
+            <br>
+            <div id="saved-rooms">
+            </div>
+            <button type="button" class="btn btn-sm btn-blue btn-outline" id="save-rooms-list">
+              <i class="fa fa-save"></i> Save Rooms List
+            </button>
+            <small class="form-text text-muted">Create a new list for the rooms in the textbox</small>
+            <textarea rows="5" id="rooms" class="form-control auto-save" placeholder="Enter your list of rooms" required></textarea>
+            <small class="form-text text-muted">No more than 100 rooms</small>
+            <div id="error-rooms" class="text-danger text-small">※ Rooms min 1 and max 100</div>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input auto-save" id="autobook">
+            <label class="form-check-label" for="autobook">Auto Book first available room</label>
+            <small class="form-text text-muted">Unchecking this option will only list up available rooms and will not book anything</small>
+          </div>
+          <div class="form-group mt-5">
+            <button type="button" id="submit" class="btn btn-block btn-primary">
+              <i class="fa fa-plus-circle"></i> Add to BOT
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+        <h4 class="text-center">History</h4>
+        <hr>
+        <div id="history"></div>
+      </div>
+    </div>
+
+  </div>
+  <footer class="mt-5 mb-5 text-small">
+    <hr>
+    <div class="text-center">
+      Enjoy!
+      <br>
+      &copy; Copyright 2019
+      <br>
+      License - MIT
+    </div>
+  </footer>
+</body>
+
+</html>
