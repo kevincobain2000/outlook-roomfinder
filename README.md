@@ -1,5 +1,3 @@
-<img src="icon.ico" alt="" height="100" width="100">
-
 ### Document
 
 This tool is intended to save time by automating looking for such empty slots and cancellations. If done manually takes 30 mins to 1 hour of your daily time.
