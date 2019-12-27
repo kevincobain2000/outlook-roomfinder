@@ -16,7 +16,7 @@ https://github.com/kevincobain2000/outlook-roomfinder/releases
 
 #### Flow
 
-<img src="screens/flow.png" width="750">
+<img src="screens/flow.png" width="250">
 
 #### UI
 
